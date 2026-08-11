@@ -1,0 +1,1009 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+
+/* =========================
+   SAYFA
+========================= */
+
+.app {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background: #0b0f1a;
+  color: white;
+}
+
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+  width: 250px;
+  min-height: 100vh;
+  flex-shrink: 0;
+
+  background: #070c1e;
+
+  padding: 22px 14px;
+}
+
+
+/* LOGO */
+
+.sidebar img {
+  width: 180px;
+  height: auto;
+
+  display: block;
+
+  margin: 0 auto 24px;
+}
+
+
+/* MENU */
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+/* MENU ITEM */
+
+.sidebar li {
+  padding: 0;
+  margin-bottom: 8px;
+
+  border: 1px solid transparent;
+  border-radius: 10px;
+}
+
+
+/* LINK */
+
+.sidebar li a {
+  position: relative;
+
+  width: 100%;
+
+  padding: 10px 12px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  color: #8f96aa;
+
+  text-decoration: none;
+
+  border: 1px solid transparent;
+  border-radius: 10px;
+
+  white-space: nowrap;
+
+  transition:
+    background 0.25s ease,
+    border 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/* ICON */
+
+.sidebar li a svg {
+  width: 18px;
+  height: 18px;
+
+  flex-shrink: 0;
+
+  stroke-width: 1.8;
+
+  color: #8f7cff;
+
+  filter:
+    drop-shadow(0 0 5px #6c63ff)
+    drop-shadow(0 0 10px #00d9ff);
+
+  transition:
+    color 0.25s ease,
+    filter 0.25s ease;
+}
+
+
+/* HOVER */
+
+.sidebar li a:hover {
+  color: white;
+
+  background: rgba(76, 45, 180, 0.22);
+
+  border-color: rgba(126, 84, 255, 0.45);
+
+  box-shadow:
+    0 0 12px rgba(108, 76, 255, 0.18),
+    0 0 30px rgba(108, 76, 255, 0.12);
+}
+
+
+/* HOVER ICON */
+
+.sidebar li a:hover svg {
+  color: #bca8ff;
+
+  filter:
+    drop-shadow(0 0 6px #8b5cff)
+    drop-shadow(0 0 14px #00e0ff)
+    drop-shadow(0 0 22px rgba(108, 99, 255, 0.7));
+}
+
+
+/* AKTİF SAYFA */
+
+.sidebar li a.active {
+  color: white;
+
+  background:
+    radial-gradient(
+      circle at left,
+      rgba(125, 70, 255, 0.30),
+      rgba(76, 45, 180, 0.12)
+    );
+
+  border-color: rgba(126, 84, 255, 0.45);
+
+  box-shadow:
+    0 0 12px rgba(108, 76, 255, 0.18),
+    0 0 30px rgba(108, 76, 255, 0.12);
+}
+
+
+/* AKTİF İKON */
+
+.sidebar li a.active svg {
+  color: #c8bdff;
+
+  filter:
+    drop-shadow(0 0 6px #8b5cff)
+    drop-shadow(0 0 14px #00e0ff)
+    drop-shadow(0 0 22px rgba(108, 99, 255, 0.7));
+}
+
+
+/* AKTİF SAYFANIN SOL NEON ÇİZGİSİ */
+
+.sidebar li a.active::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+
+  width: 3px;
+
+  background: #a477ff;
+
+  border-radius: 5px;
+
+  box-shadow:
+    0 0 8px #8b5cff,
+    0 0 14px #00d9ff;
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+.main {
+  flex: 1;
+
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  height: 88px;
+  flex-shrink: 0;
+
+  background: #0d1324;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 20px;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-box {
+  width: 320px;
+  height: 40px;
+
+  background: rgba(20, 27, 55, 0.8);
+
+  border: 1px solid rgba(105, 90, 255, 0.25);
+
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+
+  transition: 0.25s;
+}
+
+.search-box:focus-within {
+  border-color: rgba(126, 84, 255, 0.7);
+
+  box-shadow:
+    0 0 10px rgba(108, 76, 255, 0.25),
+    0 0 25px rgba(0, 224, 255, 0.12);
+}
+
+.search-box svg {
+  width: 18px;
+  height: 18px;
+
+  flex-shrink: 0;
+
+  margin-left: 12px;
+
+  color: #7c6cff;
+
+  filter:
+    drop-shadow(0 0 6px #6c63ff);
+}
+
+.navbar input {
+  width: 100%;
+  height: 40px;
+
+  padding: 0 14px;
+
+  background: transparent;
+
+  color: white;
+
+  border: none;
+  outline: none;
+}
+
+.navbar input::placeholder {
+  color: #737b91;
+}
+
+
+/* =========================
+   USER STATS
+========================= */
+
+.user-stats {
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+
+  white-space: nowrap;
+}
+
+
+/* XP */
+
+.xp-info {
+  height: 34px;
+
+  padding: 0 12px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  background: rgba(18, 24, 48, 0.85);
+
+  border: 1px solid rgba(126, 84, 255, 0.25);
+
+  border-radius: 8px;
+
+  box-shadow:
+    0 0 12px rgba(108, 76, 255, 0.08);
+}
+
+.xp-info span {
+  font-size: 11px;
+
+  color: #8f96aa;
+
+  letter-spacing: 1px;
+}
+
+.xp-info strong {
+  font-size: 14px;
+
+  color: #bca8ff;
+
+  text-shadow:
+    0 0 8px rgba(139, 92, 255, 0.6);
+}
+
+
+/* KRİSTAL */
+
+.crystal-info {
+  height: 34px;
+
+  padding: 0 12px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+
+  background: rgba(18, 24, 48, 0.85);
+
+  border: 1px solid rgba(0, 224, 255, 0.22);
+
+  border-radius: 8px;
+
+  color: #00e0ff;
+
+  text-shadow:
+    0 0 8px rgba(0, 224, 255, 0.6);
+
+  box-shadow:
+    0 0 12px rgba(0, 224, 255, 0.08);
+}
+
+.crystal-info svg {
+  width: 17px;
+  height: 17px;
+
+  color: #00e0ff;
+
+  filter:
+    drop-shadow(0 0 7px #00e0ff);
+}
+
+
+/* ALTIN */
+
+.gold-info {
+  height: 34px;
+
+  padding: 0 12px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+
+  background: rgba(18, 24, 48, 0.85);
+
+  border: 1px solid rgba(255, 200, 61, 0.22);
+
+  border-radius: 8px;
+
+  color: #ffc83d;
+
+  text-shadow:
+    0 0 8px rgba(255, 200, 61, 0.6);
+
+  box-shadow:
+    0 0 12px rgba(255, 200, 61, 0.08);
+}
+
+.gold-info svg {
+  width: 17px;
+  height: 17px;
+
+  color: #ffc83d;
+
+  filter:
+    drop-shadow(0 0 7px #ffc83d);
+}
+
+
+/* BİLDİRİM */
+
+.notification {
+  position: relative;
+
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #9b8cff;
+}
+
+.notification svg {
+  width: 18px;
+  height: 18px;
+
+  filter:
+    drop-shadow(0 0 5px #6c63ff)
+    drop-shadow(0 0 8px #00d9ff);
+}
+
+.notification span {
+  position: absolute;
+
+  top: -3px;
+  right: -3px;
+
+  min-width: 14px;
+  height: 14px;
+
+  padding: 0 3px;
+
+  border-radius: 50%;
+
+  background: #7c5cff;
+
+  color: white;
+
+  font-size: 9px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow:
+    0 0 8px rgba(124, 92, 255, 0.8);
+}
+
+
+/* PROFİL */
+
+.profile {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-left: 8px;
+}
+
+.profile > svg {
+  width: 34px;
+  height: 34px;
+
+  color: #bca8ff;
+
+  filter:
+    drop-shadow(0 0 6px #8b5cff)
+    drop-shadow(0 0 10px #00d9ff);
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.profile-info strong {
+  font-size: 13px;
+
+  color: white;
+
+  white-space: nowrap;
+}
+
+.profile-info span {
+  font-size: 10px;
+
+  color: #9b7cff;
+
+  white-space: nowrap;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  flex: 1;
+
+  min-height: 0;
+
+  padding: 20px;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #171d3a,
+      #0b0f1a
+    );
+
+  overflow: auto;
+}
+
+
+/* =========================
+   ARENA SCREEN
+========================= */
+
+.arena-screen {
+  width: 100%;
+  min-height: 100%;
+
+  background: #080d1d;
+
+  border: 1px solid rgba(126, 84, 255, 0.2);
+
+  border-radius: 18px;
+
+  overflow: hidden;
+}
+
+
+/* =========================
+   ARENA MAIN
+========================= */
+
+.arena-main {
+  display: grid;
+
+  grid-template-columns:
+    210px
+    minmax(0, 1fr)
+    210px;
+
+  gap: 14px;
+
+  width: 100%;
+
+  min-height: 430px;
+
+  padding: 16px;
+}
+
+
+/* =========================
+   SEASON CARD
+========================= */
+
+.season-card {
+  width: 210px;
+  min-height: 365px;
+
+  padding: 24px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(25, 20, 58, 0.96),
+      rgba(8, 13, 30, 0.96)
+    );
+
+  border: 1px solid rgba(126, 84, 255, 0.35);
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 0 20px rgba(108, 76, 255, 0.08),
+    inset 0 0 30px rgba(108, 76, 255, 0.04);
+}
+
+.season-label {
+  font-size: 12px;
+
+  color: #a477ff;
+
+  letter-spacing: 1px;
+
+  margin-bottom: 8px;
+}
+
+.season-card h2 {
+  margin: 0;
+
+  font-size: 28px;
+
+  font-style: italic;
+
+  color: white;
+
+  text-shadow:
+    0 0 12px rgba(139, 92, 255, 0.45);
+}
+
+.season-divider {
+  width: 100%;
+  height: 1px;
+
+  margin: 18px 0;
+
+  background: rgba(126, 84, 255, 0.2);
+}
+
+.time-label {
+  font-size: 12px;
+
+  color: #9299ad;
+
+  margin-bottom: 5px;
+}
+
+.season-time {
+  display: block;
+
+  font-size: 15px;
+
+  color: white;
+
+  margin-bottom: 28px;
+}
+
+.reward-title {
+  font-size: 12px;
+
+  color: #9299ad;
+
+  margin-bottom: 12px;
+}
+
+.reward-content {
+  min-height: 70px;
+
+  display: flex;
+  align-items: center;
+
+  color: white;
+
+  font-size: 13px;
+
+  line-height: 1.5;
+}
+
+.season-button {
+  width: 100%;
+
+  margin-top: 18px;
+
+  padding: 11px;
+
+  border: 1px solid rgba(126, 84, 255, 0.35);
+
+  border-radius: 9px;
+
+  background: rgba(76, 45, 180, 0.22);
+
+  color: white;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.season-button:hover {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(108, 76, 255, 0.65),
+      rgba(0, 224, 255, 0.35)
+    );
+
+  box-shadow:
+    0 0 12px rgba(108, 76, 255, 0.35),
+    0 0 22px rgba(0, 224, 255, 0.12);
+}
+
+
+/* =========================
+   ARENA CENTER
+========================= */
+
+.arena-center {
+  min-height: 365px;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background-size: cover;
+
+  background-position: center;
+
+  background-repeat: no-repeat;
+
+  border-radius: 18px;
+
+  border: 1px solid rgba(126, 84, 255, 0.3);
+
+  box-shadow:
+    inset 0 0 60px rgba(20, 10, 60, 0.35),
+    0 0 25px rgba(108, 76, 255, 0.12);
+}
+
+
+/* SIRALAMA */
+
+.ranking-info {
+  position: absolute;
+
+  bottom: 24px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 3px;
+
+  padding: 8px 22px;
+
+  background: rgba(5, 8, 25, 0.65);
+
+  border: 1px solid rgba(126, 84, 255, 0.25);
+
+  border-radius: 10px;
+
+  backdrop-filter: blur(6px);
+}
+
+.ranking-info span {
+  font-size: 9px;
+
+  letter-spacing: 1.5px;
+
+  color: #858ca1;
+}
+
+.ranking-info strong {
+  font-size: 20px;
+
+  color: white;
+
+  text-shadow:
+    0 0 10px rgba(139, 92, 255, 0.6);
+}
+
+.ranking-info small {
+  font-size: 8px;
+
+  color: #6f768b;
+}
+
+
+/* =========================
+   LEAGUE CARD
+========================= */
+
+.league-card {
+  min-height: 365px;
+
+  padding: 24px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(20, 25, 55, 0.96),
+      rgba(7, 12, 28, 0.96)
+    );
+
+  border: 1px solid rgba(126, 84, 255, 0.3);
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 0 20px rgba(108, 76, 255, 0.08),
+    inset 0 0 30px rgba(108, 76, 255, 0.04);
+
+  text-align: center;
+}
+
+.league-title {
+  font-size: 13px;
+
+  color: #bca8ff;
+
+  letter-spacing: 1px;
+
+  margin-bottom: 18px;
+}
+
+.league-badge {
+  width: 76px;
+  height: 76px;
+
+  margin: 0 auto 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  font-size: 28px;
+  font-weight: 800;
+
+  color: #d9ccff;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(126, 84, 255, 0.45),
+      rgba(25, 20, 58, 0.9)
+    );
+
+  border: 2px solid rgba(157, 122, 255, 0.6);
+
+  box-shadow:
+    0 0 15px rgba(126, 84, 255, 0.4),
+    0 0 35px rgba(0, 224, 255, 0.12),
+    inset 0 0 20px rgba(126, 84, 255, 0.25);
+}
+
+.league-rank {
+  font-size: 22px;
+
+  font-weight: 700;
+
+  color: white;
+
+  text-shadow:
+    0 0 12px rgba(139, 92, 255, 0.5);
+}
+
+.league-points {
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+
+  margin-top: 25px;
+
+  font-size: 11px;
+
+  color: #8f96aa;
+}
+
+.league-points strong {
+  font-size: 20px;
+
+  color: white;
+}
+
+/* =========================
+   ARENA HEADER
+========================= */
+
+.arena-heading {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.back-button {
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(126, 84, 255, 0.3);
+  border-radius: 12px;
+
+  background: rgba(20, 24, 52, 0.75);
+
+  color: white;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.back-button svg {
+  width: 23px;
+  height: 23px;
+
+  color: #c8c0ff;
+
+  filter:
+    drop-shadow(0 0 6px #6c63ff);
+}
+
+.back-button:hover {
+  border-color: rgba(0, 224, 255, 0.55);
+
+  background: rgba(76, 45, 180, 0.3);
+
+  box-shadow:
+    0 0 15px rgba(108, 76, 255, 0.3),
+    0 0 25px rgba(0, 224, 255, 0.12);
+}
+
+.arena-heading-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.arena-heading-text h1 {
+  margin: 0;
+
+  font-size: 22px;
+  line-height: 1;
+
+  color: white;
+
+  letter-spacing: 1px;
+}
+
+.arena-heading-text span {
+  font-size: 11px;
+
+  color: #7f879d;
+}
+
+.page-placeholder {
+  flex: 1;
+
+  min-height: 0;
+
+  padding: 50px;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #171d3a,
+      #0b0f1a
+    );
+
+  color: white;
+}
+
+.page-placeholder h1 {
+  font-size: 32px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #6c63ff,
+      #00e0ff
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+
+  margin-bottom: 10px;
+}
+
+.page-placeholder p {
+  color: #8f96aa;
+}
