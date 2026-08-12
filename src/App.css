@@ -1,629 +1,759 @@
+/* =========================================
+   GENEL
+========================================= */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  background: #050817;
+  color: white;
+  overflow-x: hidden;
+}
+
+button,
+input {
+  font-family: inherit;
 }
 
 
-/* =========================
-   SAYFA
-========================= */
+/* =========================================
+   ANA SAYFA
+========================================= */
 
 .app {
-  display: flex;
   width: 100%;
   min-height: 100vh;
-  background: #0b0f1a;
-  color: white;
-}
-
-
-/* =========================
-   SIDEBAR
-========================= */
-
-.sidebar {
-  width: 250px;
-  min-height: 100vh;
-  flex-shrink: 0;
-
-  background: #070c1e;
-
-  padding: 22px 14px;
-}
-
-
-/* LOGO */
-
-.sidebar img {
-  width: 180px;
-  height: auto;
-
-  display: block;
-
-  margin: 0 auto 24px;
-}
-
-
-/* MENU */
-
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-
-/* MENU ITEM */
-
-.sidebar li {
-  padding: 0;
-  margin-bottom: 8px;
-
-  border: 1px solid transparent;
-  border-radius: 10px;
-}
-
-
-/* LINK */
-
-.sidebar li a {
-  position: relative;
-
-  width: 100%;
-
-  padding: 10px 12px;
 
   display: flex;
-  align-items: center;
-
-  gap: 12px;
-
-  color: #8f96aa;
-
-  text-decoration: none;
-
-  border: 1px solid transparent;
-  border-radius: 10px;
-
-  white-space: nowrap;
-
-  transition:
-    background 0.25s ease,
-    border 0.25s ease,
-    color 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-
-/* ICON */
-
-.sidebar li a svg {
-  width: 18px;
-  height: 18px;
-
-  flex-shrink: 0;
-
-  stroke-width: 1.8;
-
-  color: #8f7cff;
-
-  filter:
-    drop-shadow(0 0 5px #6c63ff)
-    drop-shadow(0 0 10px #00d9ff);
-
-  transition:
-    color 0.25s ease,
-    filter 0.25s ease;
-}
-
-
-/* HOVER */
-
-.sidebar li a:hover {
-  color: white;
-
-  background: rgba(76, 45, 180, 0.22);
-
-  border-color: rgba(126, 84, 255, 0.45);
-
-  box-shadow:
-    0 0 12px rgba(108, 76, 255, 0.18),
-    0 0 30px rgba(108, 76, 255, 0.12);
-}
-
-
-/* HOVER ICON */
-
-.sidebar li a:hover svg {
-  color: #bca8ff;
-
-  filter:
-    drop-shadow(0 0 6px #8b5cff)
-    drop-shadow(0 0 14px #00e0ff)
-    drop-shadow(0 0 22px rgba(108, 99, 255, 0.7));
-}
-
-
-/* AKTİF SAYFA */
-
-.sidebar li a.active {
-  color: white;
 
   background:
     radial-gradient(
-      circle at left,
-      rgba(125, 70, 255, 0.30),
-      rgba(76, 45, 180, 0.12)
-    );
+      circle at 60% 20%,
+      rgba(54, 43, 150, 0.12),
+      transparent 35%
+    ),
+    #050817;
 
-  border-color: rgba(126, 84, 255, 0.45);
-
-  box-shadow:
-    0 0 12px rgba(108, 76, 255, 0.18),
-    0 0 30px rgba(108, 76, 255, 0.12);
+  color: white;
 }
 
 
-/* AKTİF İKON */
+/* =========================================
+   SIDEBAR
+========================================= */
 
-.sidebar li a.active svg {
-  color: #c8bdff;
-
-  filter:
-    drop-shadow(0 0 6px #8b5cff)
-    drop-shadow(0 0 14px #00e0ff)
-    drop-shadow(0 0 22px rgba(108, 99, 255, 0.7));
-}
-
-
-/* AKTİF SAYFANIN SOL NEON ÇİZGİSİ */
-
-.sidebar li a.active::before {
-  content: "";
-
-  position: absolute;
+.sidebar {
+  position: fixed;
 
   left: 0;
-  top: 8px;
-  bottom: 8px;
+  top: 0;
 
-  width: 3px;
+  width: 214px;
+  height: 100vh;
 
-  background: #a477ff;
+  padding: 20px 12px;
 
-  border-radius: 5px;
+  background:
+    linear-gradient(
+      180deg,
+      #05091b 0%,
+      #070b21 50%,
+      #050816 100%
+    );
 
-  box-shadow:
-    0 0 8px #8b5cff,
-    0 0 14px #00d9ff;
+  border-right: 1px solid rgba(126, 84, 255, 0.16);
+
+  z-index: 1000;
+
+  overflow-y: auto;
+}
+
+.sidebar-top {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 26px;
+}
+
+.sidebar-logo {
+  width: 178px;
+  height: auto;
+  display: block;
 }
 
 
-/* =========================
-   MAIN
-========================= */
+/* =========================================
+   SIDEBAR NAV
+========================================= */
 
-.main {
-  flex: 1;
-
-  min-width: 0;
-
+.sidebar-nav {
   display: flex;
   flex-direction: column;
+  gap: 5px;
 }
 
+.sidebar-item {
+  position: relative;
 
-/* =========================
-   NAVBAR
-========================= */
-
-.navbar {
-  height: 88px;
-  flex-shrink: 0;
-
-  background: #0d1324;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  padding: 0 20px;
-}
-
-
-/* =========================
-   SEARCH
-========================= */
-
-.search-box {
-  width: 320px;
-  height: 40px;
-
-  background: rgba(20, 27, 55, 0.8);
-
-  border: 1px solid rgba(105, 90, 255, 0.25);
-
-  border-radius: 10px;
-
-  display: flex;
-  align-items: center;
-
-  transition: 0.25s;
-}
-
-.search-box:focus-within {
-  border-color: rgba(126, 84, 255, 0.7);
-
-  box-shadow:
-    0 0 10px rgba(108, 76, 255, 0.25),
-    0 0 25px rgba(0, 224, 255, 0.12);
-}
-
-.search-box svg {
-  width: 18px;
-  height: 18px;
-
-  flex-shrink: 0;
-
-  margin-left: 12px;
-
-  color: #7c6cff;
-
-  filter:
-    drop-shadow(0 0 6px #6c63ff);
-}
-
-.navbar input {
   width: 100%;
-  height: 40px;
 
-  padding: 0 14px;
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  padding: 11px 13px;
+
+  border: 1px solid transparent;
+  border-radius: 11px;
 
   background: transparent;
 
-  color: white;
-
-  border: none;
-  outline: none;
-}
-
-.navbar input::placeholder {
-  color: #737b91;
-}
-
-
-/* =========================
-   USER STATS
-========================= */
-
-.user-stats {
-  display: flex;
-  align-items: center;
-
-  gap: 18px;
-
-  white-space: nowrap;
-}
-
-
-/* XP */
-
-.xp-info {
-  height: 34px;
-
-  padding: 0 12px;
-
-  display: flex;
-  align-items: center;
-
-  gap: 8px;
-
-  background: rgba(18, 24, 48, 0.85);
-
-  border: 1px solid rgba(126, 84, 255, 0.25);
-
-  border-radius: 8px;
-
-  box-shadow:
-    0 0 12px rgba(108, 76, 255, 0.08);
-}
-
-.xp-info span {
-  font-size: 11px;
-
   color: #8f96aa;
 
-  letter-spacing: 1px;
+  font-size: 13px;
+
+  cursor: pointer;
+
+  text-align: left;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-.xp-info strong {
-  font-size: 14px;
-
-  color: #bca8ff;
-
-  text-shadow:
-    0 0 8px rgba(139, 92, 255, 0.6);
-}
-
-
-/* KRİSTAL */
-
-.crystal-info {
-  height: 34px;
-
-  padding: 0 12px;
-
-  display: flex;
-  align-items: center;
-
-  gap: 6px;
-
-  background: rgba(18, 24, 48, 0.85);
-
-  border: 1px solid rgba(0, 224, 255, 0.22);
-
-  border-radius: 8px;
-
-  color: #00e0ff;
-
-  text-shadow:
-    0 0 8px rgba(0, 224, 255, 0.6);
-
-  box-shadow:
-    0 0 12px rgba(0, 224, 255, 0.08);
-}
-
-.crystal-info svg {
-  width: 17px;
-  height: 17px;
-
-  color: #00e0ff;
-
-  filter:
-    drop-shadow(0 0 7px #00e0ff);
-}
-
-
-/* ALTIN */
-
-.gold-info {
-  height: 34px;
-
-  padding: 0 12px;
-
-  display: flex;
-  align-items: center;
-
-  gap: 6px;
-
-  background: rgba(18, 24, 48, 0.85);
-
-  border: 1px solid rgba(255, 200, 61, 0.22);
-
-  border-radius: 8px;
-
-  color: #ffc83d;
-
-  text-shadow:
-    0 0 8px rgba(255, 200, 61, 0.6);
-
-  box-shadow:
-    0 0 12px rgba(255, 200, 61, 0.08);
-}
-
-.gold-info svg {
-  width: 17px;
-  height: 17px;
-
-  color: #ffc83d;
-
-  filter:
-    drop-shadow(0 0 7px #ffc83d);
-}
-
-
-/* BİLDİRİM */
-
-.notification {
-  position: relative;
-
-  width: 32px;
-  height: 32px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  color: #9b8cff;
-}
-
-.notification svg {
+.sidebar-item svg {
   width: 18px;
   height: 18px;
+
+  flex-shrink: 0;
+
+  color: #9583ff;
 
   filter:
     drop-shadow(0 0 5px #6c63ff)
     drop-shadow(0 0 8px #00d9ff);
 }
 
-.notification span {
+.sidebar-item:hover {
+  color: white;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(86, 58, 200, 0.25),
+      rgba(40, 35, 110, 0.08)
+    );
+
+  border-color: rgba(126, 84, 255, 0.32);
+
+  box-shadow:
+    0 0 16px rgba(108, 76, 255, 0.12);
+}
+
+.sidebar-item.active {
+  color: white;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(70, 52, 190, 0.55),
+      rgba(39, 32, 100, 0.28)
+    );
+
+  border-color: rgba(104, 87, 255, 0.75);
+
+  box-shadow:
+    0 0 14px rgba(76, 67, 255, 0.24),
+    inset 0 0 18px rgba(95, 73, 255, 0.08);
+}
+
+.sidebar-item.active::before {
+  content: "";
+
   position: absolute;
 
-  top: -3px;
-  right: -3px;
+  left: -1px;
+  top: 7px;
+  bottom: 7px;
 
-  min-width: 14px;
-  height: 14px;
+  width: 3px;
 
-  padding: 0 3px;
+  border-radius: 4px;
 
-  border-radius: 50%;
+  background: linear-gradient(
+    180deg,
+    #a477ff,
+    #00e0ff
+  );
 
-  background: #7c5cff;
+  box-shadow:
+    0 0 8px #8b5cff,
+    0 0 15px #00d9ff;
+}
+
+
+/* =========================================
+   DAILY TASK
+========================================= */
+
+.daily-task {
+  margin-top: 30px;
+
+  padding: 17px;
+
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(20, 25, 57, 0.92),
+      rgba(8, 12, 31, 0.95)
+    );
+
+  border: 1px solid rgba(126, 84, 255, 0.2);
+}
+
+.daily-task-header {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  font-size: 10px;
+  letter-spacing: 1px;
+
+  color: #c0c5d8;
+}
+
+.daily-task-header svg {
+  width: 15px;
+  height: 15px;
+
+  color: #9d7cff;
+}
+
+.daily-task p {
+  margin-top: 18px;
+
+  font-size: 11px;
+
+  color: #c8ccda;
+}
+
+.task-progress {
+  width: 100%;
+  height: 4px;
+
+  margin-top: 12px;
+
+  border-radius: 10px;
+
+  background: #202540;
+
+  overflow: hidden;
+}
+
+.task-progress-bar {
+  width: 60%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      #6c4cff,
+      #00d9ff
+    );
+
+  box-shadow:
+    0 0 8px #6c63ff;
+}
+
+.task-bottom {
+  margin-top: 8px;
+
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 10px;
+
+  color: #7f879e;
+}
+
+.task-bottom strong {
+  color: #9c82ff;
+}
+
+
+/* =========================================
+   PREMIUM
+========================================= */
+
+.premium-card {
+  margin-top: 16px;
+
+  padding: 16px;
+
+  border-radius: 13px;
+
+  border: 1px solid rgba(126, 84, 255, 0.22);
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(102, 69, 255, 0.18),
+      transparent 55%
+    ),
+    #080c20;
+}
+
+.premium-icon {
+  width: 27px;
+  height: 27px;
+
+  color: #ffd15c;
+}
+
+.premium-icon svg {
+  width: 25px;
+  height: 25px;
+}
+
+.premium-card h3 {
+  margin-top: 7px;
+
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.premium-card > strong {
+  display: block;
+
+  margin-top: 1px;
+
+  font-size: 20px;
+
+  color: #ffd35c;
+
+  text-shadow:
+    0 0 10px rgba(255, 195, 55, 0.45);
+}
+
+.premium-card p {
+  margin-top: 8px;
+
+  color: #8f96aa;
+
+  font-size: 9px;
+
+  line-height: 1.5;
+}
+
+.premium-card button {
+  width: 100%;
+
+  margin-top: 12px;
+
+  padding: 9px;
+
+  border: 0;
+
+  border-radius: 8px;
 
   color: white;
 
-  font-size: 9px;
+  background:
+    linear-gradient(
+      90deg,
+      #5130c9,
+      #3021a0
+    );
+
+  cursor: pointer;
+
+  font-size: 10px;
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
+
+.main {
+  width: calc(100% - 214px);
+
+  margin-left: 214px;
+
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+  min-height: 78px;
+
+  padding: 0 20px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+
+  background:
+    rgba(5, 9, 27, 0.94);
+
+  border-bottom: 1px solid rgba(126, 84, 255, 0.12);
+}
+
+.navbar-title {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  min-width: 225px;
+}
+
+.back-button {
+  width: 48px;
+  height: 48px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  box-shadow:
-    0 0 8px rgba(124, 92, 255, 0.8);
+  border-radius: 12px;
+
+  border: 1px solid rgba(126, 84, 255, 0.25);
+
+  background:
+    rgba(25, 25, 63, 0.7);
+
+  color: white;
+
+  font-size: 30px;
+
+  cursor: pointer;
+}
+
+.navbar-title h1 {
+  font-size: 28px;
+  line-height: 1;
+
+  letter-spacing: -1px;
+}
+
+.navbar-title p {
+  margin-top: 6px;
+
+  color: #777f95;
+
+  font-size: 11px;
 }
 
 
-/* PROFİL */
+/* =========================================
+   SEARCH
+========================================= */
+
+.search-box {
+  width: 280px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 12px;
+
+  border-radius: 10px;
+
+  border: 1px solid rgba(126, 84, 255, 0.2);
+
+  background: rgba(16, 21, 46, 0.8);
+
+  margin-left: auto;
+}
+
+.search-box svg {
+  width: 17px;
+  height: 17px;
+
+  color: #8e7cff;
+}
+
+.search-box input {
+  width: 100%;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: white;
+
+  padding-left: 9px;
+
+  font-size: 11px;
+}
+
+.search-box input::placeholder {
+  color: #666e85;
+}
+
+
+/* =========================================
+   USER STATS
+========================================= */
+
+.user-stats {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+}
+
+.stat {
+  height: 39px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 0 13px;
+
+  border-radius: 20px;
+
+  background: rgba(14, 19, 43, 0.9);
+
+  border: 1px solid rgba(126, 84, 255, 0.22);
+
+  font-size: 12px;
+}
+
+.stat svg {
+  width: 17px;
+  height: 17px;
+}
+
+.crystal-stat {
+  color: #9d7cff;
+}
+
+.crystal-stat svg {
+  color: #8b6dff;
+  filter: drop-shadow(0 0 7px #765cff);
+}
+
+.gold-stat {
+  color: #ffc83d;
+
+  border-color: rgba(255, 200, 61, 0.2);
+}
+
+.gold-stat svg {
+  color: #ffc83d;
+
+  filter:
+    drop-shadow(0 0 7px #ffc83d);
+}
+
+.mail-button {
+  border: 0;
+
+  background: transparent;
+
+  color: #9299ad;
+
+  font-size: 22px;
+
+  cursor: pointer;
+}
+
+.notification {
+  position: relative;
+
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+
+  background: transparent;
+
+  color: #a89aff;
+
+  cursor: pointer;
+}
+
+.notification svg {
+  width: 19px;
+  height: 19px;
+
+  filter:
+    drop-shadow(0 0 5px #6c63ff);
+}
+
+.notification span {
+  position: absolute;
+
+  top: -2px;
+  right: -1px;
+
+  min-width: 14px;
+  height: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 3px;
+
+  border-radius: 20px;
+
+  background: #7658ff;
+
+  color: white;
+
+  font-size: 8px;
+}
 
 .profile {
   display: flex;
   align-items: center;
 
-  gap: 10px;
-
-  margin-left: 8px;
+  gap: 8px;
 }
 
 .profile > svg {
-  width: 34px;
-  height: 34px;
+  width: 40px;
+  height: 40px;
 
-  color: #bca8ff;
+  color: #b18cff;
 
   filter:
-    drop-shadow(0 0 6px #8b5cff)
-    drop-shadow(0 0 10px #00d9ff);
+    drop-shadow(0 0 6px #775cff);
 }
 
 .profile-info {
   display: flex;
   flex-direction: column;
 
-  gap: 3px;
+  gap: 2px;
 }
 
 .profile-info strong {
-  font-size: 13px;
-
-  color: white;
-
-  white-space: nowrap;
+  font-size: 11px;
 }
 
 .profile-info span {
-  font-size: 10px;
+  font-size: 9px;
 
-  color: #9b7cff;
-
-  white-space: nowrap;
+  color: #927dff;
 }
 
 
-/* =========================
-   HERO
-========================= */
+/* =========================================
+   ARENA PAGE
+========================================= */
 
-.hero {
-  flex: 1;
+.arena-page {
+  width: 100%;
 
-  min-height: 0;
-
-  padding: 20px;
+  padding: 10px 18px 30px;
 
   background:
     radial-gradient(
-      circle at center,
-      #171d3a,
-      #0b0f1a
-    );
-
-  overflow: auto;
+      circle at 50% 0%,
+      rgba(50, 42, 145, 0.16),
+      transparent 45%
+    ),
+    #050817;
 }
 
 
-/* =========================
-   ARENA SCREEN
-========================= */
+/* =========================================
+   ARENA LAYOUT
+========================================= */
 
-.arena-screen {
+.arena-layout {
   width: 100%;
-  min-height: 100%;
 
-  background: #080d1d;
-
-  border: 1px solid rgba(126, 84, 255, 0.2);
-
-  border-radius: 18px;
-
-  overflow: hidden;
-}
-
-
-/* =========================
-   ARENA MAIN
-========================= */
-
-.arena-main {
   display: grid;
 
   grid-template-columns:
-    210px
-    minmax(0, 1fr)
-    210px;
+    195px
+    minmax(400px, 1fr)
+    195px;
 
-  gap: 14px;
-
-  width: 100%;
+  gap: 10px;
 
   min-height: 430px;
-
-  padding: 16px;
 }
 
 
-/* =========================
+/* =========================================
    SEASON CARD
-========================= */
+========================================= */
 
 .season-card {
-  width: 210px;
-  min-height: 365px;
+  min-width: 0;
 
-  padding: 24px;
+  padding: 24px 20px;
+
+  border-radius: 17px;
 
   background:
     linear-gradient(
       145deg,
-      rgba(25, 20, 58, 0.96),
-      rgba(8, 13, 30, 0.96)
+      rgba(29, 24, 68, 0.97),
+      rgba(7, 11, 30, 0.98)
     );
 
   border: 1px solid rgba(126, 84, 255, 0.35);
 
-  border-radius: 18px;
-
   box-shadow:
-    0 0 20px rgba(108, 76, 255, 0.08),
     inset 0 0 30px rgba(108, 76, 255, 0.04);
 }
 
 .season-label {
-  font-size: 12px;
+  color: #a77cff;
 
-  color: #a477ff;
+  font-size: 10px;
 
-  letter-spacing: 1px;
-
-  margin-bottom: 8px;
+  letter-spacing: 0.7px;
 }
 
 .season-card h2 {
-  margin: 0;
+  margin-top: 7px;
 
-  font-size: 28px;
+  font-size: 26px;
 
   font-style: italic;
 
@@ -637,208 +767,280 @@
   width: 100%;
   height: 1px;
 
-  margin: 18px 0;
+  margin: 16px 0;
 
-  background: rgba(126, 84, 255, 0.2);
+  background: rgba(126, 84, 255, 0.18);
 }
 
-.time-label {
-  font-size: 12px;
+.time-label,
+.reward-title {
+  color: #7f879d;
 
-  color: #9299ad;
-
-  margin-bottom: 5px;
+  font-size: 10px;
 }
 
 .season-time {
-  display: block;
-
-  font-size: 15px;
-
-  color: white;
-
-  margin-bottom: 28px;
-}
-
-.reward-title {
-  font-size: 12px;
-
-  color: #9299ad;
-
-  margin-bottom: 12px;
-}
-
-.reward-content {
-  min-height: 70px;
-
   display: flex;
   align-items: center;
 
-  color: white;
+  gap: 7px;
 
-  font-size: 13px;
+  margin-top: 7px;
 
-  line-height: 1.5;
+  font-size: 12px;
 }
 
-.season-button {
-  width: 100%;
+.season-time svg {
+  width: 15px;
+  height: 15px;
 
-  margin-top: 18px;
-
-  padding: 11px;
-
-  border: 1px solid rgba(126, 84, 255, 0.35);
-
-  border-radius: 9px;
-
-  background: rgba(76, 45, 180, 0.22);
-
-  color: white;
-
-  cursor: pointer;
-
-  transition: 0.25s;
+  color: #a77cff;
 }
 
-.season-button:hover {
-  background:
-    linear-gradient(
-      90deg,
-      rgba(108, 76, 255, 0.65),
-      rgba(0, 224, 255, 0.35)
-    );
-
-  box-shadow:
-    0 0 12px rgba(108, 76, 255, 0.35),
-    0 0 22px rgba(0, 224, 255, 0.12);
+.reward-title {
+  margin-top: 28px;
 }
 
+.reward-box {
+  display: flex;
+  align-items: center;
 
-/* =========================
-   ARENA CENTER
-========================= */
+  gap: 10px;
 
-.arena-center {
-  min-height: 365px;
+  margin-top: 12px;
 
-  position: relative;
+  font-size: 11px;
+
+  line-height: 1.45;
+}
+
+.reward-chest {
+  width: 50px;
+  height: 50px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #182a68,
+      #080d28
+    );
+
+  border: 1px solid rgba(63, 155, 255, 0.45);
+
+  box-shadow:
+    0 0 15px rgba(0, 128, 255, 0.2);
+}
+
+.reward-chest svg {
+  width: 28px;
+  height: 28px;
+
+  color: #5fb7ff;
+}
+
+.season-button {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  margin-top: 28px;
+
+  padding: 10px;
+
+  border-radius: 9px;
+
+  border: 1px solid rgba(126, 84, 255, 0.35);
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(70, 48, 180, 0.65),
+      rgba(47, 33, 130, 0.45)
+    );
+
+  color: white;
+
+  font-size: 10px;
+
+  cursor: pointer;
+}
+
+.season-button svg {
+  width: 14px;
+  height: 14px;
+}
+
+
+/* =========================================
+   MERKEZ ARENA
+========================================= */
+
+.arena-center {
+  position: relative;
+
+  min-width: 0;
+  min-height: 430px;
+
   overflow: hidden;
+
+  border-radius: 17px;
+
+  border: 1px solid rgba(126, 84, 255, 0.4);
+
+  background-image:
+    url("/arka-plan-arena.png");
 
   background-size: cover;
 
   background-position: center;
 
-  background-repeat: no-repeat;
-
-  border-radius: 18px;
-
-  border: 1px solid rgba(126, 84, 255, 0.3);
-
   box-shadow:
-    inset 0 0 60px rgba(20, 10, 60, 0.35),
+    inset 0 0 80px rgba(2, 5, 20, 0.3),
     0 0 25px rgba(108, 76, 255, 0.12);
 }
 
-
-/* SIRALAMA */
-
-.ranking-info {
+.arena-overlay {
   position: absolute;
 
-  bottom: 24px;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(4, 7, 25, 0.05),
+      rgba(4, 7, 25, 0.2)
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   ARENA LOGO
+========================================= */
+
+.arena-logo {
+  position: absolute;
+
+  top: 49px;
   left: 50%;
 
   transform: translateX(-50%);
 
+  width: 65px;
+  height: 65px;
+
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
 
-  gap: 3px;
-
-  padding: 8px 22px;
-
-  background: rgba(5, 8, 25, 0.65);
-
-  border: 1px solid rgba(126, 84, 255, 0.25);
-
-  border-radius: 10px;
-
-  backdrop-filter: blur(6px);
+  z-index: 2;
 }
 
-.ranking-info span {
-  font-size: 9px;
+.arena-logo img {
+  width: 100%;
+  height: 100%;
 
-  letter-spacing: 1.5px;
+  object-fit: contain;
 
-  color: #858ca1;
+  filter:
+    drop-shadow(0 0 7px #805cff)
+    drop-shadow(0 0 17px #00d9ff);
 }
 
-.ranking-info strong {
-  font-size: 20px;
 
-  color: white;
+/* =========================================
+   TYT / AYT
+========================================= */
+
+.mode-badge {
+  position: absolute;
+
+  top: 22px;
+
+  width: 78px;
+  height: 75px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 2;
+
+  font-size: 18px;
+  font-weight: 700;
 
   text-shadow:
-    0 0 10px rgba(139, 92, 255, 0.6);
+    0 0 10px currentColor;
 }
 
-.ranking-info small {
-  font-size: 8px;
+.tyt-badge {
+  left: 11%;
 
-  color: #6f768b;
-}
-
-
-/* =========================
-   LEAGUE CARD
-========================= */
-
-.league-card {
-  min-height: 365px;
-
-  padding: 24px;
+  color: #36aaff;
 
   background:
     linear-gradient(
-      145deg,
-      rgba(20, 25, 55, 0.96),
-      rgba(7, 12, 28, 0.96)
+      180deg,
+      rgba(0, 83, 190, 0.32),
+      rgba(0, 35, 100, 0.1)
     );
 
-  border: 1px solid rgba(126, 84, 255, 0.3);
-
-  border-radius: 18px;
-
-  box-shadow:
-    0 0 20px rgba(108, 76, 255, 0.08),
-    inset 0 0 30px rgba(108, 76, 255, 0.04);
-
-  text-align: center;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 82%,
+    50% 100%,
+    0 82%
+  );
 }
 
-.league-title {
-  font-size: 13px;
+.ayt-badge {
+  right: 11%;
 
-  color: #bca8ff;
+  color: #bb6aff;
 
-  letter-spacing: 1px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(105, 25, 185, 0.35),
+      rgba(65, 15, 100, 0.1)
+    );
 
-  margin-bottom: 18px;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 82%,
+    50% 100%,
+    0 82%
+  );
 }
 
-.league-badge {
-  width: 76px;
-  height: 76px;
 
-  margin: 0 auto 18px;
+/* =========================================
+   ARENA SHIELD
+========================================= */
+
+.arena-shield {
+  position: absolute;
+
+  left: 50%;
+  top: 52%;
+
+  transform: translate(-50%, -50%);
+
+  width: 55px;
+  height: 55px;
 
   display: flex;
   align-items: center;
@@ -846,164 +1048,1972 @@
 
   border-radius: 50%;
 
-  font-size: 28px;
-  font-weight: 800;
-
-  color: #d9ccff;
-
   background:
     radial-gradient(
       circle,
-      rgba(126, 84, 255, 0.45),
-      rgba(25, 20, 58, 0.9)
+      rgba(96, 70, 255, 0.85),
+      rgba(25, 18, 85, 0.75)
     );
 
-  border: 2px solid rgba(157, 122, 255, 0.6);
+  border: 1px solid rgba(190, 150, 255, 0.7);
 
   box-shadow:
-    0 0 15px rgba(126, 84, 255, 0.4),
-    0 0 35px rgba(0, 224, 255, 0.12),
-    inset 0 0 20px rgba(126, 84, 255, 0.25);
+    0 0 18px rgba(106, 82, 255, 0.8),
+    inset 0 0 20px rgba(0, 217, 255, 0.2);
 }
 
-.league-rank {
-  font-size: 22px;
-
-  font-weight: 700;
+.arena-shield svg {
+  width: 29px;
+  height: 29px;
 
   color: white;
-
-  text-shadow:
-    0 0 12px rgba(139, 92, 255, 0.5);
 }
 
-.league-points {
+
+/* =========================================
+   RANKING
+========================================= */
+
+.ranking-info {
+  position: absolute;
+
+  left: 50%;
+  bottom: 17px;
+
+  transform: translateX(-50%);
+
   display: flex;
   flex-direction: column;
 
-  gap: 6px;
-
-  margin-top: 25px;
-
-  font-size: 11px;
-
-  color: #8f96aa;
-}
-
-.league-points strong {
-  font-size: 20px;
-
-  color: white;
-}
-
-/* =========================
-   ARENA HEADER
-========================= */
-
-.arena-heading {
-  display: flex;
   align-items: center;
-  gap: 20px;
+
+  z-index: 3;
+
+  width: 180px;
 }
 
-.back-button {
-  width: 46px;
-  height: 46px;
+.ranking-info span {
+  font-size: 9px;
+
+  letter-spacing: 1px;
+
+  color: #a69aff;
+}
+
+.ranking-info strong {
+  margin-top: 3px;
+
+  font-size: 23px;
+
+  text-shadow:
+    0 0 12px rgba(139, 92, 255, 0.6);
+}
+
+.ranking-info small {
+  margin-top: 2px;
+
+  font-size: 8px;
+
+  color: #b0b6c9;
+}
+
+.ranking-xp {
+  margin-top: 7px;
+
+  font-size: 8px;
+
+  color: #858ca1;
+}
+
+.ranking-progress {
+  width: 100%;
+  height: 4px;
+
+  margin-top: 5px;
+
+  border-radius: 10px;
+
+  background: rgba(12, 16, 40, 0.8);
+
+  overflow: hidden;
+}
+
+.ranking-progress div {
+  width: 85%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      #673cff,
+      #00d9ff
+    );
+
+  box-shadow:
+    0 0 8px #6c63ff;
+}
+
+
+/* =========================================
+   LİG KARTI
+========================================= */
+
+.league-card {
+  padding: 20px 17px;
+
+  border-radius: 17px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(22, 25, 57, 0.96),
+      rgba(7, 11, 30, 0.98)
+    );
+
+  border: 1px solid rgba(126, 84, 255, 0.3);
+
+  text-align: center;
+}
+
+.league-title {
+  font-size: 12px;
+
+  font-weight: 600;
+}
+
+.league-shield {
+  width: 80px;
+  height: 80px;
+
+  margin: 13px auto 7px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  border: 1px solid rgba(126, 84, 255, 0.3);
-  border-radius: 12px;
+  border-radius: 50%;
 
-  background: rgba(20, 24, 52, 0.75);
-
-  color: white;
-
-  cursor: pointer;
-
-  transition: 0.25s;
+  background:
+    radial-gradient(
+      circle,
+      rgba(50, 70, 110, 0.6),
+      rgba(5, 9, 25, 0.5)
+    );
 }
 
-.back-button svg {
-  width: 23px;
-  height: 23px;
+.league-shield svg {
+  width: 65px;
+  height: 65px;
 
-  color: #c8c0ff;
+  color: #d5e1ff;
 
   filter:
-    drop-shadow(0 0 6px #6c63ff);
+    drop-shadow(0 0 9px rgba(190, 215, 255, 0.4));
 }
 
-.back-button:hover {
-  border-color: rgba(0, 224, 255, 0.55);
-
-  background: rgba(76, 45, 180, 0.3);
-
-  box-shadow:
-    0 0 15px rgba(108, 76, 255, 0.3),
-    0 0 25px rgba(0, 224, 255, 0.12);
+.league-card h2 {
+  font-size: 17px;
 }
 
-.arena-heading-text {
+.stars {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+
   gap: 2px;
+
+  margin-top: 8px;
 }
 
-.arena-heading-text h1 {
-  margin: 0;
+.stars svg {
+  width: 13px;
+  height: 13px;
 
-  font-size: 22px;
-  line-height: 1;
-
-  color: white;
-
-  letter-spacing: 1px;
+  color: #4c5165;
 }
 
-.arena-heading-text span {
-  font-size: 11px;
+.stars svg.filled {
+  color: #ffc83d;
+
+  fill: #ffc83d;
+
+  filter:
+    drop-shadow(0 0 5px #ffc83d);
+}
+
+.league-divider {
+  width: 100%;
+  height: 1px;
+
+  margin: 14px 0;
+
+  background: rgba(126, 84, 255, 0.16);
+}
+
+.league-points-label {
+  font-size: 9px;
 
   color: #7f879d;
 }
 
-.page-placeholder {
-  flex: 1;
+.league-points {
+  display: block;
 
-  min-height: 0;
+  margin-top: 4px;
 
-  padding: 50px;
-
-  background:
-    radial-gradient(
-      circle at center,
-      #171d3a,
-      #0b0f1a
-    );
-
-  color: white;
+  font-size: 17px;
 }
 
-.page-placeholder h1 {
-  font-size: 32px;
+.next-league {
+  margin-top: 12px;
+
+  padding: 10px;
+
+  border-radius: 10px;
+
+  background: rgba(8, 13, 35, 0.7);
+
+  border: 1px solid rgba(126, 84, 255, 0.15);
+
+  text-align: left;
+}
+
+.next-league span,
+.next-league small {
+  display: block;
+
+  font-size: 8px;
+
+  color: #7f879d;
+}
+
+.next-league strong {
+  display: block;
+
+  margin-top: 4px;
+
+  font-size: 11px;
+
+  color: #a77cff;
+}
+
+.next-progress {
+  width: 100%;
+  height: 4px;
+
+  margin-top: 8px;
+
+  background: #1b203a;
+
+  border-radius: 10px;
+
+  overflow: hidden;
+}
+
+.next-progress div {
+  width: 60%;
+  height: 100%;
 
   background:
     linear-gradient(
       90deg,
-      #6c63ff,
-      #00e0ff
+      #704cff,
+      #00d9ff
     );
-
-  -webkit-background-clip: text;
-  background-clip: text;
-
-  color: transparent;
-
-  margin-bottom: 10px;
 }
 
-.page-placeholder p {
+
+/* =========================================
+   ARENA ACTIONS
+========================================= */
+
+.arena-actions {
+  display: grid;
+
+  grid-template-columns: 1fr 260px 1fr;
+
+  gap: 12px;
+
+  margin-top: -1px;
+
+  position: relative;
+
+  z-index: 5;
+}
+
+.arena-actions button {
+  min-height: 46px;
+
+  border-radius: 11px;
+
+  border: 1px solid rgba(126, 84, 255, 0.22);
+
+  color: white;
+
+  background:
+    rgba(12, 17, 39, 0.94);
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  font-size: 10px;
+}
+
+.arena-actions svg {
+  width: 17px;
+  height: 17px;
+}
+
+.find-opponent {
+  background:
+    linear-gradient(
+      90deg,
+      #2633c4,
+      #5b20cc
+    ) !important;
+
+  border-color: rgba(111, 135, 255, 0.7) !important;
+
+  box-shadow:
+    0 0 20px rgba(76, 76, 255, 0.3);
+}
+
+.find-opponent div {
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+}
+
+.find-opponent strong {
+  font-size: 13px;
+}
+
+.find-opponent small {
+  margin-top: 2px;
+
+  font-size: 8px;
+
+  color: #b6c0ff;
+}
+
+
+/* =========================================
+   SECTION HEADING
+========================================= */
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 18px;
+  margin-bottom: 9px;
+}
+
+.section-heading span {
+  font-size: 13px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.4px;
+}
+
+.section-heading button {
+  display: flex;
+  align-items: center;
+
+  gap: 3px;
+
+  border: 0;
+
+  background: transparent;
+
+  color: #9182ff;
+
+  font-size: 9px;
+
+  cursor: pointer;
+}
+
+.section-heading button svg {
+  width: 14px;
+  height: 14px;
+}
+
+
+/* =========================================
+   SUBJECT GRID
+========================================= */
+
+.subject-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(6, minmax(130px, 1fr));
+
+  gap: 10px;
+
+  overflow-x: auto;
+
+  scrollbar-width: none;
+}
+
+.subject-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.subject-card {
+  position: relative;
+
+  min-width: 0;
+  height: 180px;
+
+  padding: 13px 11px;
+
+  border-radius: 14px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(126, 84, 255, 0.22);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(25, 31, 66, 0.9),
+      rgba(6, 10, 27, 0.98)
+    );
+}
+
+.subject-card::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  opacity: 0.5;
+
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(90, 70, 255, 0.3),
+      transparent 65%
+    );
+}
+
+.subject-content {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+}
+
+.subject-icon {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: rgba(88, 80, 220, 0.2);
+
+  border: 1px solid rgba(120, 110, 255, 0.3);
+}
+
+.subject-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.subject-content h3 {
+  font-size: 11px;
+}
+
+.subject-content span {
+  display: block;
+
+  margin-top: 2px;
+
+  font-size: 8px;
+
+  color: #9ca3b8;
+}
+
+.subject-bottom {
+  position: absolute;
+
+  left: 11px;
+  right: 11px;
+  bottom: 17px;
+
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 8px;
+
+  color: #9da5b8;
+}
+
+.subject-bottom strong {
+  color: white;
+}
+
+.subject-progress {
+  position: absolute;
+
+  left: 11px;
+  right: 11px;
+  bottom: 10px;
+
+  height: 3px;
+
+  border-radius: 10px;
+
+  background: rgba(30, 35, 60, 0.9);
+}
+
+.subject-progress div {
+  width: 70%;
+  height: 100%;
+
+  border-radius: 10px;
+
+  background: #6d5cff;
+}
+
+
+/* SUBJECT COLORS */
+
+.subject-card.physics .subject-icon {
+  color: #2ed9ff;
+}
+
+.subject-card.chemistry .subject-icon {
+  color: #c16cff;
+}
+
+.subject-card.biology .subject-icon {
+  color: #74cf7c;
+}
+
+.subject-card.history .subject-icon {
+  color: #e6a74d;
+}
+
+.subject-card.geography .subject-icon {
+  color: #42bfff;
+}
+
+
+/* =========================================
+   BOTTOM PANEL
+========================================= */
+
+.bottom-panel {
+  width: 100%;
+
+  min-height: 130px;
+
+  margin-top: 15px;
+
+  display: grid;
+
+  grid-template-columns: 1.5fr 0.7fr;
+
+  gap: 12px;
+
+  padding: 15px;
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      110deg,
+      rgba(24, 23, 73, 0.95),
+      rgba(10, 15, 40, 0.96)
+    );
+
+  border: 1px solid rgba(126, 84, 255, 0.25);
+
+  overflow: hidden;
+}
+
+.ai-assistant {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+}
+
+.ai-avatar {
+  width: 75px;
+  height: 75px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 20px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0, 190, 255, 0.25),
+      rgba(62, 40, 170, 0.2)
+    );
+
+  border: 1px solid rgba(0, 217, 255, 0.2);
+}
+
+.ai-avatar svg {
+  width: 36px;
+  height: 36px;
+
+  color: #4fe1ff;
+
+  filter:
+    drop-shadow(0 0 10px #00d9ff);
+}
+
+.ai-text > span,
+.quick-arena > span {
+  font-size: 11px;
+
+  color: #a89bff;
+
+  letter-spacing: 0.7px;
+}
+
+.ai-text strong {
+  display: block;
+
+  margin-top: 5px;
+
+  font-size: 12px;
+}
+
+.ai-text p {
+  margin-top: 4px;
+
+  font-size: 9px;
+
+  color: #9299ad;
+}
+
+.ai-buttons {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 6px;
+
+  margin-top: 10px;
+}
+
+.ai-buttons button {
+  padding: 6px 9px;
+
+  border-radius: 7px;
+
+  border: 1px solid rgba(126, 84, 255, 0.25);
+
+  background: rgba(18, 22, 55, 0.8);
+
+  color: #c7cbe0;
+
+  font-size: 8px;
+
+  cursor: pointer;
+}
+
+.quick-arena {
+  padding-left: 15px;
+
+  border-left: 1px solid rgba(126, 84, 255, 0.16);
+}
+
+.quick-arena p {
+  margin-top: 8px;
+
+  color: #9299ad;
+
+  font-size: 9px;
+}
+
+.quick-arena > strong {
+  display: inline-block;
+
+  margin-top: 9px;
+
+  padding: 4px 8px;
+
+  border-radius: 6px;
+
+  color: #47e7b2;
+
+  background: rgba(44, 180, 130, 0.08);
+
+  font-size: 8px;
+}
+
+.quick-arena button {
+  width: 100%;
+
+  margin-top: 8px;
+
+  padding: 8px;
+
+  border: 0;
+
+  border-radius: 8px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #4730c8,
+      #6a29d0
+    );
+
+  color: white;
+
+  font-size: 9px;
+
+  cursor: pointer;
+}
+
+
+/* =========================================
+   MOBİL HAMBURGER
+========================================= */
+
+.mobile-hamburger {
+  display: none;
+}
+
+.mobile-menu-close {
+  display: none;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1200px) {
+
+  .sidebar {
+    width: 190px;
+  }
+
+  .main {
+    width: calc(100% - 190px);
+    margin-left: 190px;
+  }
+
+  .sidebar-logo {
+    width: 155px;
+  }
+
+  .navbar-title {
+    min-width: auto;
+  }
+
+  .navbar-title p {
+    display: none;
+  }
+
+  .search-box {
+    width: 220px;
+  }
+
+  .arena-layout {
+    grid-template-columns:
+      175px
+      minmax(350px, 1fr)
+      175px;
+  }
+
+  .subject-grid {
+    grid-template-columns:
+      repeat(3, 1fr);
+  }
+
+}
+
+
+/* =========================================
+   MOBİL
+========================================= */
+
+@media (max-width: 768px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .app {
+    display: block;
+
+    width: 100%;
+    min-height: 100vh;
+  }
+
+
+  /* SIDEBAR */
+
+  .sidebar {
+    width: 280px;
+    height: 100vh;
+
+    position: fixed;
+
+    left: 0;
+    top: 0;
+
+    transform: translateX(-100%);
+
+    transition:
+      transform 0.3s ease;
+
+    z-index: 3000;
+
+    padding: 17px 13px;
+
+    box-shadow:
+      10px 0 40px rgba(0, 0, 0, 0.6);
+  }
+
+  .sidebar.mobile-open {
+    transform: translateX(0);
+  }
+
+  .sidebar-top {
+    justify-content: space-between;
+
+    margin-bottom: 24px;
+  }
+
+  .sidebar-logo {
+    width: 155px;
+  }
+
+  .mobile-menu-close {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    border: 1px solid rgba(126, 84, 255, 0.35);
+
+    background: rgba(30, 25, 70, 0.8);
+
+    color: white;
+
+    cursor: pointer;
+  }
+
+  .mobile-menu-close svg {
+    width: 20px;
+    height: 20px;
+
+    color: #bca8ff;
+  }
+
+  .sidebar-nav {
+    display: flex;
+  }
+
+  .daily-task,
+  .premium-card {
+    display: block;
+  }
+
+
+  /* HAMBURGER */
+
+  .mobile-hamburger {
+    position: fixed;
+
+    top: 12px;
+    left: 12px;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 2500;
+
+    border-radius: 11px;
+
+    border: 1px solid rgba(126, 84, 255, 0.45);
+
+    background:
+      rgba(7, 10, 28, 0.95);
+
+    color: white;
+
+    cursor: pointer;
+
+    box-shadow:
+      0 0 15px rgba(108, 76, 255, 0.25);
+  }
+
+  .mobile-hamburger svg {
+    width: 21px;
+    height: 21px;
+
+    color: #bca8ff;
+
+    filter:
+      drop-shadow(0 0 5px #8b5cff)
+      drop-shadow(0 0 8px #00d9ff);
+  }
+
+
+  /* MAIN */
+
+  .main {
+    width: 100%;
+    min-width: 0;
+
+    margin-left: 0;
+  }
+
+
+  /* NAVBAR */
+
+  .navbar {
+    min-height: auto;
+
+    padding: 12px;
+
+    padding-left: 66px;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+  }
+
+  .navbar-title {
+    width: 100%;
+
+    min-width: 0;
+
+    gap: 10px;
+  }
+
+  .back-button {
+    display: none;
+  }
+
+  .navbar-title h1 {
+    font-size: 23px;
+  }
+
+  .navbar-title p {
+    display: block;
+
+    font-size: 9px;
+
+    margin-top: 4px;
+  }
+
+  .search-box {
+    width: 100%;
+
+    height: 40px;
+
+    margin-left: 0;
+  }
+
+  .user-stats {
+    width: 100%;
+
+    display: flex;
+
+    overflow-x: auto;
+
+    padding-bottom: 2px;
+
+    scrollbar-width: none;
+  }
+
+  .user-stats::-webkit-scrollbar {
+    display: none;
+  }
+
+  .stat {
+    flex-shrink: 0;
+
+    height: 34px;
+
+    padding: 0 10px;
+
+    font-size: 10px;
+  }
+
+  .mail-button {
+    display: none;
+  }
+
+  .notification {
+    flex-shrink: 0;
+  }
+
+  .profile {
+    flex-shrink: 0;
+  }
+
+  .profile-info {
+    display: none;
+  }
+
+  .profile > svg {
+    width: 34px;
+    height: 34px;
+  }
+
+
+  /* ARENA PAGE */
+
+  .arena-page {
+    width: 100%;
+
+    padding: 8px;
+  }
+
+
+  /* ARENA */
+
+  .arena-layout {
+    display: flex;
+
+    flex-direction: column;
+
+    width: 100%;
+
+    gap: 9px;
+
+    min-height: auto;
+  }
+
+
+  /* SEASON */
+
+  .season-card {
+    width: 100%;
+
+    padding: 17px;
+
+    min-height: auto;
+  }
+
+  .season-card h2 {
+    font-size: 23px;
+  }
+
+  .season-divider {
+    margin: 13px 0;
+  }
+
+  .reward-title {
+    margin-top: 18px;
+  }
+
+  .season-button {
+    margin-top: 17px;
+  }
+
+
+  /* CENTER */
+
+  .arena-center {
+    width: 100%;
+
+    min-height: 390px;
+
+    border-radius: 14px;
+
+    background-position: center;
+  }
+
+  .arena-logo {
+    top: 43px;
+
+    width: 56px;
+    height: 56px;
+  }
+
+  .mode-badge {
+    top: 19px;
+
+    width: 65px;
+    height: 62px;
+
+    font-size: 15px;
+  }
+
+  .arena-shield {
+    width: 50px;
+    height: 50px;
+  }
+
+  .ranking-info {
+    width: 165px;
+
+    bottom: 15px;
+  }
+
+
+  /* LEAGUE */
+
+  .league-card {
+    width: 100%;
+
+    min-height: auto;
+
+    padding: 18px;
+  }
+
+  .league-shield {
+    margin-top: 10px;
+  }
+
+
+  /* ACTIONS */
+
+  .arena-actions {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+    margin-top: 2px;
+  }
+
+  .arena-actions button {
+    width: 100%;
+
+    min-height: 44px;
+  }
+
+  .find-opponent {
+    order: -1;
+  }
+
+
+  /* SUBJECTS */
+
+  .section-heading {
+    margin-top: 16px;
+  }
+
+  .subject-grid {
+    display: flex;
+
+    width: 100%;
+
+    overflow-x: auto;
+
+    gap: 9px;
+
+    padding-bottom: 5px;
+
+    scrollbar-width: none;
+  }
+
+  .subject-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .subject-card {
+    min-width: 155px;
+
+    width: 155px;
+
+    flex-shrink: 0;
+  }
+
+
+  /* BOTTOM */
+
+  .bottom-panel {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+
+    padding: 13px;
+
+    min-height: auto;
+  }
+
+  .ai-assistant {
+    align-items: flex-start;
+  }
+
+  .ai-avatar {
+    width: 55px;
+    height: 55px;
+
+    border-radius: 15px;
+  }
+
+  .ai-avatar svg {
+    width: 27px;
+    height: 27px;
+  }
+
+  .ai-buttons {
+    display: flex;
+
+    overflow-x: auto;
+
+    flex-wrap: nowrap;
+
+    scrollbar-width: none;
+  }
+
+  .ai-buttons::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ai-buttons button {
+    flex-shrink: 0;
+  }
+
+  .quick-arena {
+    padding-left: 0;
+
+    padding-top: 14px;
+
+    border-left: 0;
+
+    border-top: 1px solid rgba(126, 84, 255, 0.15);
+  }
+
+}
+
+
+/* =========================================
+   KÜÇÜK TELEFON
+========================================= */
+
+@media (max-width: 480px) {
+
+  .navbar {
+    padding-left: 62px;
+  }
+
+  .navbar-title h1 {
+    font-size: 21px;
+  }
+
+  .navbar-title p {
+    font-size: 8px;
+  }
+
+  .arena-center {
+    min-height: 350px;
+  }
+
+  .arena-logo {
+    top: 39px;
+
+    width: 48px;
+    height: 48px;
+  }
+
+  .mode-badge {
+    width: 57px;
+    height: 56px;
+
+    font-size: 13px;
+  }
+
+  .ranking-info strong {
+    font-size: 20px;
+  }
+
+  .season-card {
+    padding: 15px;
+  }
+
+  .league-card {
+    padding: 15px;
+  }
+
+  .subject-card {
+    min-width: 145px;
+    width: 145px;
+  }
+
+  .bottom-panel {
+    padding: 11px;
+  }
+
+}
+
+/* =========================================================
+   NEXUS AKADEMİ - APP.TSX UYUMLULUK + MOBİL
+   App.tsx değiştirilmeden mevcut tasarımı korur.
+   ========================================================= */
+
+/* APP.TSX SIDEBAR */
+.sidebar > img {
+  display: block;
+  width: 178px;
+  height: auto;
+  margin: 0 auto 26px;
+}
+
+.sidebar > ul {
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sidebar > ul > li {
+  width: 100%;
+  list-style: none;
+}
+
+.sidebar > ul > li > a {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 11px 13px;
+  border: 1px solid transparent;
+  border-radius: 11px;
+  background: transparent;
   color: #8f96aa;
+  font-size: 13px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease, border .2s ease, box-shadow .2s ease;
+}
+
+.sidebar > ul > li > a svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: #9583ff;
+  filter: drop-shadow(0 0 5px #6c63ff) drop-shadow(0 0 8px #00d9ff);
+}
+
+.sidebar > ul > li > a:hover {
+  color: white;
+  background: linear-gradient(90deg, rgba(86,58,200,.25), rgba(40,35,110,.08));
+  border-color: rgba(126,84,255,.32);
+  box-shadow: 0 0 16px rgba(108,76,255,.12);
+}
+
+.sidebar > ul > li > a.active {
+  color: white;
+  background: linear-gradient(90deg, rgba(70,52,190,.55), rgba(39,32,100,.28));
+  border-color: rgba(104,87,255,.75);
+  box-shadow: 0 0 14px rgba(76,67,255,.24), inset 0 0 18px rgba(95,73,255,.08);
+}
+
+.sidebar > ul > li > a.active::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: 7px;
+  bottom: 7px;
+  width: 3px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #a477ff, #00e0ff);
+  box-shadow: 0 0 8px #8b5cff, 0 0 15px #00d9ff;
+}
+
+/* APP.TSX NAVBAR */
+.arena-heading {
+  display: flex;
+  align-items: center;
+  min-width: 225px;
+  gap: 14px;
+}
+
+.arena-heading-text {
+  min-width: 0;
+}
+
+.arena-heading-text h1 {
+  font-size: 28px;
+  line-height: 1;
+  letter-spacing: -1px;
+  margin: 0;
+}
+
+.arena-heading-text span {
+  display: block;
+  margin-top: 6px;
+  color: #777f95;
+  font-size: 11px;
+}
+
+/* APP.TSX STATS */
+.xp-info,
+.crystal-info,
+.gold-info {
+  height: 39px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 13px;
+  border-radius: 20px;
+  background: rgba(14,19,43,.9);
+  border: 1px solid rgba(126,84,255,.22);
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.xp-info span {
+  color: #8f96aa;
+  font-size: 10px;
+}
+
+.xp-info strong {
+  color: white;
+  font-size: 12px;
+}
+
+.crystal-info {
+  color: #9d7cff;
+}
+
+.crystal-info svg,
+.gold-info svg {
+  width: 17px;
+  height: 17px;
+}
+
+.crystal-info svg {
+  color: #8b6dff;
+  filter: drop-shadow(0 0 7px #765cff);
+}
+
+.gold-info {
+  color: #ffc83d;
+  border-color: rgba(255,200,61,.2);
+}
+
+.gold-info svg {
+  color: #ffc83d;
+  filter: drop-shadow(0 0 7px #ffc83d);
+}
+
+/* TABLET */
+@media (max-width: 1200px) {
+  .sidebar > img {
+    width: 155px;
+  }
+
+  .arena-heading {
+    min-width: auto;
+  }
+}
+
+/* =========================================================
+   MOBİL
+   ========================================================= */
+@media (max-width: 768px) {
+
+  html,
+  body,
+  #root {
+    width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+  }
+
+  .app {
+    display: block;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* SIDEBAR: App.tsx'de hamburger olmadığı için
+     mobilde kompakt ikon menüsü olarak kalır. */
+  .sidebar {
+    width: 68px;
+    height: 100vh;
+    padding: 14px 8px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .sidebar > img {
+    width: 48px;
+    margin: 0 auto 22px;
+  }
+
+  .sidebar > ul {
+    gap: 7px;
+  }
+
+  .sidebar > ul > li > a {
+    width: 50px;
+    min-height: 48px;
+    justify-content: center;
+    padding: 10px;
+    margin: 0 auto;
+  }
+
+  .sidebar > ul > li > a span {
+    display: none;
+  }
+
+  .sidebar > ul > li > a svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* MAIN */
+  .main {
+    width: calc(100% - 68px);
+    min-width: 0;
+    margin-left: 68px;
+    overflow-x: hidden;
+  }
+
+  /* NAVBAR */
+  .navbar {
+    width: 100%;
+    min-height: auto;
+    padding: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    overflow: hidden;
+  }
+
+  .arena-heading {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .arena-heading-text {
+    min-width: 0;
+  }
+
+  .arena-heading-text h1 {
+    font-size: 21px;
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+
+  .arena-heading-text span {
+    margin-top: 5px;
+    font-size: 8px;
+  }
+
+  /* STATS */
+  .user-stats {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+  }
+
+  .user-stats::-webkit-scrollbar {
+    display: none;
+  }
+
+  .xp-info,
+  .crystal-info,
+  .gold-info {
+    height: 33px;
+    padding: 0 9px;
+    gap: 6px;
+    border-radius: 17px;
+    font-size: 10px;
+  }
+
+  .xp-info span {
+    font-size: 8px;
+  }
+
+  .xp-info strong,
+  .crystal-info strong,
+  .gold-info strong {
+    font-size: 10px;
+  }
+
+  .crystal-info svg,
+  .gold-info svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .notification {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+  }
+
+  .profile {
+    flex-shrink: 0;
+  }
+
+  .profile-info {
+    display: none;
+  }
+
+  .profile > svg {
+    width: 34px;
+    height: 34px;
+  }
+
+  /* ARENA */
+  .arena-page {
+    width: 100%;
+    min-width: 0;
+    padding: 8px;
+    overflow-x: hidden;
+  }
+
+  .arena-layout {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    min-height: auto;
+  }
+
+  .season-card {
+    width: 100%;
+    min-width: 0;
+    padding: 17px;
+    min-height: auto;
+  }
+
+  .season-card h2 {
+    font-size: 22px;
+  }
+
+  .season-divider {
+    margin: 13px 0;
+  }
+
+  .reward-title {
+    margin-top: 18px;
+  }
+
+  .season-button {
+    margin-top: 17px;
+  }
+
+  .arena-center {
+    width: 100%;
+    min-width: 0;
+    min-height: 390px;
+    border-radius: 14px;
+    background-position: center;
+  }
+
+  .arena-logo {
+    top: 43px;
+    width: 56px;
+    height: 56px;
+  }
+
+  .mode-badge {
+    top: 19px;
+    width: 65px;
+    height: 62px;
+    font-size: 15px;
+  }
+
+  .tyt-badge {
+    left: 8%;
+  }
+
+  .ayt-badge {
+    right: 8%;
+  }
+
+  .arena-shield {
+    width: 50px;
+    height: 50px;
+  }
+
+  .arena-shield svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .ranking-info {
+    width: 165px;
+    bottom: 15px;
+  }
+
+  .league-card {
+    width: 100%;
+    min-width: 0;
+    min-height: auto;
+    padding: 18px;
+  }
+
+  .league-shield {
+    margin-top: 10px;
+  }
+
+  .arena-actions {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-top: 2px;
+  }
+
+  .arena-actions button {
+    width: 100%;
+    min-height: 44px;
+  }
+
+  .find-opponent {
+    order: -1;
+  }
+
+  /* SUBJECTS */
+  .section-heading {
+    width: 100%;
+    margin-top: 16px;
+    margin-bottom: 9px;
+  }
+
+  .subject-grid {
+    width: 100%;
+    display: flex;
+    gap: 9px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 6px;
+    scrollbar-width: none;
+  }
+
+  .subject-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .subject-card {
+    width: 155px;
+    min-width: 155px;
+    flex: 0 0 155px;
+    height: 180px;
+  }
+
+  /* AI */
+  .bottom-panel {
+    width: 100%;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 13px;
+    min-height: auto;
+  }
+
+  .ai-assistant {
+    width: 100%;
+    min-width: 0;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .ai-avatar {
+    width: 55px;
+    height: 55px;
+    border-radius: 15px;
+  }
+
+  .ai-avatar svg {
+    width: 27px;
+    height: 27px;
+  }
+
+  .ai-text {
+    min-width: 0;
+  }
+
+  .ai-buttons {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .ai-buttons::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ai-buttons button {
+    flex-shrink: 0;
+  }
+
+  .quick-arena {
+    width: 100%;
+    padding-left: 0;
+    padding-top: 14px;
+    border-left: 0;
+    border-top: 1px solid rgba(126,84,255,.15);
+  }
+}
+
+/* =========================================================
+   KÜÇÜK TELEFON
+   ========================================================= */
+@media (max-width: 480px) {
+
+  .sidebar {
+    width: 60px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .sidebar > img {
+    width: 43px;
+    margin-bottom: 18px;
+  }
+
+  .sidebar > ul > li > a {
+    width: 46px;
+    min-height: 45px;
+    padding: 9px;
+  }
+
+  .main {
+    width: calc(100% - 60px);
+    margin-left: 60px;
+  }
+
+  .navbar {
+    padding: 10px 8px;
+  }
+
+  .arena-heading-text h1 {
+    font-size: 19px;
+  }
+
+  .arena-heading-text span {
+    font-size: 7px;
+  }
+
+  .user-stats {
+    gap: 5px;
+  }
+
+  .xp-info,
+  .crystal-info,
+  .gold-info {
+    height: 31px;
+    padding: 0 7px;
+  }
+
+  .notification {
+    width: 30px;
+    height: 30px;
+  }
+
+  .profile > svg {
+    width: 31px;
+    height: 31px;
+  }
+
+  .arena-page {
+    padding: 7px;
+  }
+
+  .arena-center {
+    min-height: 350px;
+  }
+
+  .arena-logo {
+    top: 39px;
+    width: 48px;
+    height: 48px;
+  }
+
+  .mode-badge {
+    width: 57px;
+    height: 56px;
+    font-size: 13px;
+  }
+
+  .tyt-badge {
+    left: 5%;
+  }
+
+  .ayt-badge {
+    right: 5%;
+  }
+
+  .ranking-info {
+    width: 150px;
+  }
+
+  .ranking-info strong {
+    font-size: 20px;
+  }
+
+  .season-card {
+    padding: 15px;
+  }
+
+  .league-card {
+    padding: 15px;
+  }
+
+  .subject-card {
+    width: 145px;
+    min-width: 145px;
+    flex-basis: 145px;
+  }
+
+  .bottom-panel {
+    padding: 11px;
+  }
 }
