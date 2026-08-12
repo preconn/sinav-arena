@@ -3017,3 +3017,419 @@ input {
     padding: 11px;
   }
 }
+
+/* =========================================================
+   NEXUS ARENA - GERÇEK ARENA.TSX YAPISI
+   App.tsx ve Arena.tsx değiştirilmeden
+   ========================================================= */
+
+.hero {
+  width: 100%;
+  min-width: 0;
+  padding: 10px 18px 30px;
+  overflow: hidden;
+}
+
+.arena-screen {
+  width: 100%;
+  min-width: 0;
+}
+
+.arena-main {
+  width: 100%;
+  min-width: 0;
+
+  display: grid;
+  grid-template-columns: 195px minmax(0, 1fr) 195px;
+  gap: 10px;
+
+  min-height: 430px;
+}
+
+/* =========================
+   SEZON
+   ========================= */
+
+.arena-main .season-card {
+  width: 100%;
+  min-width: 0;
+  min-height: 430px;
+
+  padding: 24px 20px;
+
+  border-radius: 17px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(29, 24, 68, 0.97),
+      rgba(7, 11, 30, 0.98)
+    );
+
+  border: 1px solid rgba(126, 84, 255, 0.35);
+
+  box-shadow:
+    inset 0 0 30px rgba(108, 76, 255, 0.04);
+
+  overflow: hidden;
+}
+
+.arena-main .season-card h2 {
+  margin-top: 7px;
+  font-size: 26px;
+  color: white;
+  font-style: italic;
+}
+
+.arena-main .season-divider {
+  width: 100%;
+  height: 1px;
+  margin: 16px 0;
+  background: rgba(126, 84, 255, 0.18);
+}
+
+.arena-main .season-time {
+  display: block;
+  margin-top: 7px;
+  font-size: 12px;
+}
+
+.arena-main .reward-title {
+  margin-top: 28px;
+}
+
+.arena-main .reward-content {
+  margin-top: 12px;
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.arena-main .season-button {
+  width: 100%;
+  margin-top: 28px;
+
+  padding: 10px;
+
+  border-radius: 9px;
+  border: 1px solid rgba(126, 84, 255, 0.35);
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(70, 48, 180, 0.65),
+      rgba(47, 33, 130, 0.45)
+    );
+
+  color: white;
+  cursor: pointer;
+}
+
+/* =========================
+   MERKEZ ARENA
+   ========================= */
+
+.arena-main .arena-center {
+  position: relative;
+
+  width: 100%;
+  min-width: 0;
+  min-height: 430px;
+
+  overflow: hidden;
+
+  border-radius: 17px;
+  border: 1px solid rgba(126, 84, 255, 0.4);
+
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  box-shadow:
+    inset 0 0 80px rgba(2, 5, 20, 0.3),
+    0 0 25px rgba(108, 76, 255, 0.12);
+}
+
+/* =========================
+   SIRALAMA
+   ========================= */
+
+.arena-main .ranking-info {
+  position: absolute;
+
+  left: 50%;
+  bottom: 17px;
+
+  transform: translateX(-50%);
+
+  width: 180px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  z-index: 5;
+}
+
+.arena-main .ranking-info span {
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: #a69aff;
+}
+
+.arena-main .ranking-info strong {
+  margin-top: 3px;
+  font-size: 23px;
+
+  text-shadow:
+    0 0 12px rgba(139, 92, 255, 0.6);
+}
+
+.arena-main .ranking-info small {
+  margin-top: 2px;
+  font-size: 8px;
+  color: #b0b6c9;
+}
+
+/* =========================
+   LİG
+   ========================= */
+
+.arena-main .league-card {
+  width: 100%;
+  min-width: 0;
+  min-height: 430px;
+
+  padding: 20px 17px;
+
+  border-radius: 17px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(22, 25, 57, 0.96),
+      rgba(7, 11, 30, 0.98)
+    );
+
+  border: 1px solid rgba(126, 84, 255, 0.3);
+
+  text-align: center;
+
+  overflow: hidden;
+}
+
+.arena-main .league-title {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.arena-main .league-badge {
+  width: 80px;
+  height: 80px;
+
+  margin: 20px auto 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(50, 70, 110, 0.6),
+      rgba(5, 9, 25, 0.5)
+    );
+
+  color: #d5e1ff;
+
+  font-size: 28px;
+  font-weight: 700;
+
+  box-shadow:
+    0 0 20px rgba(150, 180, 255, 0.15);
+}
+
+.arena-main .league-rank {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.arena-main .league-points {
+  margin-top: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.arena-main .league-points span {
+  font-size: 9px;
+  color: #7f879d;
+}
+
+.arena-main .league-points strong {
+  font-size: 17px;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+  .hero {
+    padding: 10px 12px 25px;
+  }
+
+  .arena-main {
+    grid-template-columns:
+      170px
+      minmax(0, 1fr)
+      170px;
+
+    gap: 8px;
+  }
+
+  .arena-main .season-card,
+  .arena-main .arena-center,
+  .arena-main .league-card {
+    min-height: 400px;
+  }
+
+}
+
+/* =========================================================
+   MOBİL
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .hero {
+    width: 100%;
+    padding: 8px;
+    overflow: hidden;
+  }
+
+  .arena-screen {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .arena-main {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    min-height: 0;
+  }
+
+  /* SEZON */
+
+  .arena-main .season-card {
+    width: 100%;
+    min-height: 0;
+
+    padding: 18px;
+
+    border-radius: 15px;
+  }
+
+  .arena-main .season-card h2 {
+    font-size: 23px;
+  }
+
+  .arena-main .season-divider {
+    margin: 13px 0;
+  }
+
+  .arena-main .reward-title {
+    margin-top: 18px;
+  }
+
+  .arena-main .season-button {
+    margin-top: 18px;
+  }
+
+  /* ARENA GÖRSELİ */
+
+  .arena-main .arena-center {
+    width: 100%;
+    min-height: 390px;
+
+    border-radius: 14px;
+
+    background-size: cover;
+    background-position: center center;
+  }
+
+  /* SIRALAMA */
+
+  .arena-main .ranking-info {
+    width: 160px;
+    bottom: 15px;
+  }
+
+  .arena-main .ranking-info strong {
+    font-size: 21px;
+  }
+
+  /* LİG */
+
+  .arena-main .league-card {
+    width: 100%;
+    min-height: 0;
+
+    padding: 18px;
+
+    border-radius: 15px;
+  }
+
+  .arena-main .league-badge {
+    margin-top: 15px;
+  }
+
+}
+
+/* =========================================================
+   KÜÇÜK TELEFON
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .hero {
+    padding: 6px;
+  }
+
+  .arena-main {
+    gap: 8px;
+  }
+
+  .arena-main .season-card {
+    padding: 15px;
+  }
+
+  .arena-main .season-card h2 {
+    font-size: 21px;
+  }
+
+  .arena-main .arena-center {
+    min-height: 340px;
+  }
+
+  .arena-main .ranking-info {
+    width: 145px;
+  }
+
+  .arena-main .ranking-info strong {
+    font-size: 20px;
+  }
+
+  .arena-main .league-card {
+    padding: 15px;
+  }
+
+}
